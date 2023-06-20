@@ -1,5 +1,5 @@
 <h1 align="center">
-API Node com DDD
+API Node com SOLID
 </h1>
 
 <p align="center">
