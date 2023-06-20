@@ -1,5 +1,5 @@
 <h1 align="center">
-Fundamentos ignite react
+API Node com DDD
 </h1>
 
 <p align="center">
@@ -35,10 +35,10 @@ Before starting :checkered_flag:, you need to have [Git](https://git-scm.com) an
 
 ```bash
 # Clone this project
-$ git clone https://github.com/diogorochaa/fundamentos-ignite-react.git
+$ git clone https://github.com/diogorochaa/ignite-ddd-node.git
 
 # Access
-$ cd fundamentos-ignite-react
+$ cd ignite-ddd-node
 
 # Install dependencies
 $ npm install
