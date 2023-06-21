@@ -18,12 +18,14 @@ export async function registerController(
   // validando o corpo da requisição
   const { name, email, password } = registerBodySchema.parse(request.body)
 
+  // criando uma instância do use case de registro de usuários
   try {
     const usersRepository = new PrismaUsersRepository()
     const registerUseCase = new RegisterUseCase(usersRepository)
 
     await registerUseCase.execute({ name, email, password })
   } catch (error) {
+    // verificando se o erro é de usuário já existente
     if (error instanceof UserAlreadyExistsError) {
       return reply.status(409).send({ message: error.message })
     }
