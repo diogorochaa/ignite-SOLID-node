@@ -10,6 +10,7 @@ interface GetUserProfileUseCaseResponse {
   user: User
 }
 
+// criando uma classe para o caso de uso de pegar o perfil de um usuário
 export class GetUserProfileUseCase {
   constructor(private usersRepository: UsersRepository) {}
 
