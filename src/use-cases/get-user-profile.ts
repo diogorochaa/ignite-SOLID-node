@@ -17,6 +17,7 @@ export class GetUserProfileUseCase {
   async execute({
     userId,
   }: GetUserProfileUseCaseRequest): Promise<GetUserProfileUseCaseResponse> {
+    // criando uma variável para verificar se o usuário existe
     const user = await this.usersRepository.findById(userId)
 
     if (!user) {
