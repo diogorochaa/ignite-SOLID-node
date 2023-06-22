@@ -5,6 +5,7 @@ export async function profileController(
   request: FastifyRequest,
   reply: FastifyReply,
 ) {
+  // criando uma instância do use case de registro de usuários
   const getUserProfile = makeGetUserProfileUseCase()
 
   const { user } = await getUserProfile.execute({
