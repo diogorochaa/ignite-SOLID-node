@@ -22,18 +22,42 @@ export async function authenticateController(
 
     const { user } = await authenticateUseCase.execute({ email, password })
 
+    // gerando um token JWT
     const token = await reply.jwtSign(
-      {},
+      {
+        role: user.role,
+      },
       {
         sign: {
           sub: user.id,
         },
       },
     )
+    // gerando um token JWT para o refresh token
+    const refreshToken = await reply.jwtSign(
+      {
+        role: user.role,
+      },
+      {
+        sign: {
+          sub: user.id,
+          expiresIn: '7d',
+        },
+      },
+    )
 
-    return reply.status(200).send({
-      token,
-    })
+    // retornando o token JWT e o refresh token
+    return reply
+      .setCookie('refreshToken', refreshToken, {
+        path: '/',
+        secure: true,
+        sameSite: true,
+        httpOnly: true,
+      })
+      .status(200)
+      .send({
+        token,
+      })
   } catch (error) {
     // verificando se o erro é de usuário já existente
     if (error instanceof InvalidCredentialsError) {

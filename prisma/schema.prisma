@@ -10,18 +10,26 @@ datasource db {
   url      = env("DATABASE_URL")
 }
 
+// criando permissões de acesso
+enum Role {
+  ADMIN
+  MEMBER
+}
+
 // criando a tabela de usuários
 model User {
   id            String    @id @default(uuid())
   email         String    @unique
   name          String
   password_hash String
+  role          Role      @default(MEMBER)
   created_at    DateTime  @default(now())
   checkIns      CheckIn[]
 
   @@map("users")
 }
 
+// criando a tabela de check-ins
 model CheckIn {
   id           String    @id @default(uuid())
   created_at   DateTime  @default(now())
@@ -36,6 +44,7 @@ model CheckIn {
   @@map("check_ins")
 }
 
+// criando a tabela de academias
 model Gym {
   id          String    @id @default(uuid())
   title       String
