@@ -4,6 +4,7 @@ import { afterAll, beforeAll, describe, expect, it } from 'vitest'
 import { createAndAuthenticateUser } from '@/utils/test/create-and-authenticate-user'
 import { prisma } from '@/lib/prisma'
 
+// criando teste  para check-in
 describe('Create Check-in (e2e)', () => {
   beforeAll(async () => {
     await app.ready()
@@ -13,6 +14,7 @@ describe('Create Check-in (e2e)', () => {
     await app.close()
   })
 
+  // criando teste para criar check-in
   it('should be able to create a check-in', async () => {
     const { token } = await createAndAuthenticateUser(app)
 

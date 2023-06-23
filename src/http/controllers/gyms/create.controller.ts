@@ -2,6 +2,7 @@ import { FastifyReply, FastifyRequest } from 'fastify'
 import { z } from 'zod'
 import { makeCreateGymUseCase } from '@/use-cases/factories/make-create-gym-use-case'
 
+// criando controller para criar academias
 export async function createController(
   request: FastifyRequest,
   reply: FastifyReply,

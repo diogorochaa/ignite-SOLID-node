@@ -2,6 +2,7 @@ import { FastifyReply, FastifyRequest } from 'fastify'
 import { z } from 'zod'
 import { makeFetchNearbyGymsUseCase } from '@/use-cases/factories/make-fetch-nearby-gyms-use-case'
 
+// criando controller para buscar academias proximas
 export async function nearbyController(
   request: FastifyRequest,
   reply: FastifyReply,

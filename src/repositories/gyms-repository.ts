@@ -5,6 +5,7 @@ export interface FindManyNearbyParams {
   longitude: number
 }
 
+// criando repositorio para buscar academias
 export interface GymsRepository {
   findById(id: string): Promise<Gym | null>
   findManyNearby(params: FindManyNearbyParams): Promise<Gym[]>

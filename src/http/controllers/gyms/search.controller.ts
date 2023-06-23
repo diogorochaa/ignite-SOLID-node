@@ -2,6 +2,7 @@ import { FastifyReply, FastifyRequest } from 'fastify'
 import { z } from 'zod'
 import { makeSearchGymsUseCase } from '@/use-cases/factories/make-search-gyms-use-case'
 
+// criando controller para buscar academias
 export async function searchController(
   request: FastifyRequest,
   reply: FastifyReply,

@@ -13,6 +13,7 @@ describe('Check-in Metrics (e2e)', () => {
     await app.close()
   })
 
+  // criando teste para criar check-in
   it('should be able to get the total count of check-ins', async () => {
     const { token } = await createAndAuthenticateUser(app)
 
